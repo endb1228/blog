@@ -1,0 +1,238 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://localhost:4000/</id>
+  <title>Jonghyeok Lee</title>
+  <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
+  <updated>2023-03-11T16:09:12+09:00</updated>
+  <author>
+    <name></name>
+    <uri>http://localhost:4000/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="http://localhost:4000/"/>
+  <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
+  <rights> © 2023  </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>OSI 모델</title>
+    <link href="http://localhost:4000/posts/osi-model/" rel="alternate" type="text/html" title="OSI 모델" />
+    <published>2023-03-10T00:00:00+09:00</published>
+  
+    <updated>2023-03-10T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/osi-model/</id>
+    <content src="http://localhost:4000/posts/osi-model/" />
+    <author>
+      <name>Jonghyeok Lee</name>
+    </author>
+
+  
+    
+    <category term="Network" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+
+OSI (Open Systems Interconnection)
+현재에 와서는 OSI를 엄격하게 따르지 않고 일부는 추상적인 개념으로만 남아있지만, 여전히 인터넷과 네트워크를 이해하는데 많은 도움이 되는 개념이다.
+
+7. 응용 계층 (Application Layer)
+응용 계층에서는 사용자가 데이터와 직접 상호작용할 수 있게 만드는 계층이다.
+HTTP로 웹페이지를 불러오거나, SMTP로 이메일을 주고 받는 행위가 이 계층에 해당한다.
+
+6. 표현 계층 (Presentation Layer)
+응용 계층에서 데이터를 활용할 수 있도록 변환/압축/암호화 등의 작업을 하는 계층이다.
+
+5. 세션 계층 (Session Layer)
+두 프로세스 사이에서 통신하기 위해 세션을 열고, 유지하고, 닫는 책임을 갖는 계...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>AWS VPC</title>
+    <link href="http://localhost:4000/posts/aws-vpc/" rel="alternate" type="text/html" title="AWS VPC" />
+    <published>2023-03-09T00:00:00+09:00</published>
+  
+    <updated>2023-03-09T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/aws-vpc/</id>
+    <content src="http://localhost:4000/posts/aws-vpc/" />
+    <author>
+      <name>Jonghyeok Lee</name>
+    </author>
+
+  
+    
+    <category term="AWS" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      VPC (Virtual Private Cloud)
+VPC - blog
+subnet - blog
+subnet - wikipedia
+gateway/routing - blog
+
+VPC란?
+AWS 사용자가 직접 가상 네트워크 환경을 구성하는 서비스이다.
+AWS 인스턴스에 VPC를 적용하면 다른 VPC가 적용된 인스턴스와는 독립된 네트워크에서 동작한다.
+
+VPC의 구성
+VPC 내부의 네트워크는 사설망이기 때문에 RFC1918에서 정의된 ip 대역 안에서 할당해야 한다.
+ip 대역은 다음과 같다.
+
+  10.0.0.0 ~ 10.255.255.255(10/8 prefix)
+  172.16.0.0 ~ 172.31.255.255(182.16/12 prefix)
+  192.168.0.0 ~ 192.168.255.255(...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>스프링 시큐리티 인증 테스트</title>
+    <link href="http://localhost:4000/posts/spring-security-authentication-test/" rel="alternate" type="text/html" title="스프링 시큐리티 인증 테스트" />
+    <published>2023-03-07T00:00:00+09:00</published>
+  
+    <updated>2023-03-07T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/spring-security-authentication-test/</id>
+    <content src="http://localhost:4000/posts/spring-security-authentication-test/" />
+    <author>
+      <name>Jonghyeok Lee</name>
+    </author>
+
+  
+    
+    <category term="Spring" />
+    
+    <category term="spring security" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Spring MVC</title>
+    <link href="http://localhost:4000/posts/spring-mvc/" rel="alternate" type="text/html" title="Spring MVC" />
+    <published>2023-03-06T00:00:00+09:00</published>
+  
+    <updated>2023-03-06T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/spring-mvc/</id>
+    <content src="http://localhost:4000/posts/spring-mvc/" />
+    <author>
+      <name>Jonghyeok Lee</name>
+    </author>
+
+  
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+payload
+command
+dto
+dao
+entity
+…
+
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>스프링 정보 정리</title>
+    <link href="http://localhost:4000/posts/spring-etc/" rel="alternate" type="text/html" title="스프링 정보 정리" />
+    <published>2023-03-06T00:00:00+09:00</published>
+  
+    <updated>2023-03-06T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/spring-etc/</id>
+    <content src="http://localhost:4000/posts/spring-etc/" />
+    <author>
+      <name>Jonghyeok Lee</name>
+    </author>
+
+  
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  톰캣은 서블릿을 지원함. 서블릿 컨테이너롤 틍해 개발자는 멀티 스레드 관련 코드를 크게 신경쓰지 않아도 되지만, 대신 싱글톤 객체만큼은 크게 신경써야 함.
+
+
+2.
+
+
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+

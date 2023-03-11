@@ -1,0 +1,412 @@
+[
+  
+  {
+    "title": "OSI 모델",
+    "url": "/posts/osi-model/",
+    "categories": "Network",
+    "tags": "Network, OSI",
+    "date": "2023-03-10 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "OSI (Open Systems Interconnection)현재에 와서는 OSI를 엄격하게 따르지 않고 일부는 추상적인 개념으로만 남아있지만, 여전히 인터넷과 네트워크를 이해하는데 많은 도움이 되는 개념이다.7. 응용 계층 (Application Layer)응용 계층에서는 사용자가 데이터와 직접 상호작용할 수 있게 만드는 계층이다.HTTP로 웹페이지...",
+    "content": "OSI (Open Systems Interconnection)현재에 와서는 OSI를 엄격하게 따르지 않고 일부는 추상적인 개념으로만 남아있지만, 여전히 인터넷과 네트워크를 이해하는데 많은 도움이 되는 개념이다.7. 응용 계층 (Application Layer)응용 계층에서는 사용자가 데이터와 직접 상호작용할 수 있게 만드는 계층이다.HTTP로 웹페이지를 불러오거나, SMTP로 이메일을 주고 받는 행위가 이 계층에 해당한다.6. 표현 계층 (Presentation Layer)응용 계층에서 데이터를 활용할 수 있도록 변환/압축/암호화 등의 작업을 하는 계층이다.5. 세션 계층 (Session Layer)두 프로세스 사이에서 통신하기 위해 세션을 열고, 유지하고, 닫는 책임을 갖는 계층이다.체크포인트를 설정하여 통신하는 동안 통신이 끊기더라도 체크포인트부터 재개할 수 있도록 한다.4. 전송 계층 (Transport Layer)두 프로세스 사이에서 발생하는 통신을 담당하며, 세션 계층과 네트워크 계층 사이에서 데이터를 분할/병합하는 역할을 하는 계층이다.대표적으로 연결지향 프로토콜인 TCP와 비연결 프로토콜인 UDP가 있다.3."
+  },
+  
+  {
+    "title": "AWS VPC",
+    "url": "/posts/aws-vpc/",
+    "categories": "AWS",
+    "tags": "AWS, VPC, CIDR, subnet, ip",
+    "date": "2023-03-09 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "VPC (Virtual Private Cloud)VPC - blogsubnet - blogsubnet - wikipediagateway/routing - blogVPC란?AWS 사용자가 직접 가상 네트워크 환경을 구성하는 서비스이다.AWS 인스턴스에 VPC를 적용하면 다른 VPC가 적용된 인스턴스와는 독립된 네트워크에서 동작한다.VPC의 구성VPC 내...",
+    "content": "VPC (Virtual Private Cloud)VPC - blogsubnet - blogsubnet - wikipediagateway/routing - blogVPC란?AWS 사용자가 직접 가상 네트워크 환경을 구성하는 서비스이다.AWS 인스턴스에 VPC를 적용하면 다른 VPC가 적용된 인스턴스와는 독립된 네트워크에서 동작한다.VPC의 구성VPC 내부의 네트워크는 사설망이기 때문에 RFC1918에서 정의된 ip 대역 안에서 할당해야 한다.ip 대역은 다음과 같다.  10.0.0.0 ~ 10.255.255.255(10/8 prefix)  172.16.0.0 ~ 172.31.255.255(182.16/12 prefix)  192.168.0.0 ~ 192.168.255.255(192.168/16 prefix)CIDR (Classless Inter-Domain Routing)과 서브넷 마스크CIDR은 호스트의 수가 늘어남에 따라 ip주소가 고갈되고, 라우팅 테이블의 크기가 늘어나기 시작하면서 이를 해결하기 위해 고안된 방식이다.이러한 CIDR 방식을 통해 네트워크를 서브넷으로 나눌 수 있다.CIDR은 ip 뒤에 ‘/24’처럼 비트 수를 추가로 표기한다. 비트 수에 따라 서브넷 마스크가 설정되고, 서브넷을 어떻게 나눌지를 결정한다.서브넷 마스크 역시 ip와 같이 XXX.XXX.XXX.XXX의 형태(4개의 8비트)로 표기한다. 이 때, CIDR의 비트 수만큼 앞에서 부터 비트를 1로, 나머지는 0으로 채운다.‘/24’의 경우, 앞에서 부터 24개의 1을 채우기 때문에 255.255.255.0 (11111111.11111111.11111111.00000000)으로 서브넷 마스크가 결정된다.서브넷ip와 서브넷 마스크를 AND연산하면 서브넷의 주소와 크기가 결정된다.만약 내 호스트의 CIDR이 192.168.10.65/24일 때 192.168.10.65와 255.255.255.0을 AND연산하면 서브넷의 네트워크 주소인 192.168.10.0/24가 되고, 해당 서브넷에 속해 있는 호스트는 총 254개가 된다. (첫 번째인 네트워크 주소와 마지막인 브로드캐스트 주소를 제외)서브넷은 VPC 내에서 각 인스턴스, 리소스 등이 속한 서비스 및 역할에 따라 네트워크를 독립시키기 위해 사용하기도 한다.라우팅 테이블라우터는 데이터 통신 시 ip에 따라 목적지를 결정할 수 있도록 하는 테이블이다.게이트웨이서로 다른 네트워크 사이에서"
+  },
+  
+  {
+    "title": "스프링 시큐리티 인증 테스트",
+    "url": "/posts/spring-security-authentication-test/",
+    "categories": "Spring, spring security",
+    "tags": "Java, Spring, spring security, authentication",
+    "date": "2023-03-07 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "",
+    "content": ""
+  },
+  
+  {
+    "title": "Spring MVC",
+    "url": "/posts/spring-mvc/",
+    "categories": "Spring",
+    "tags": "Java, Spring",
+    "date": "2023-03-06 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "payloadcommanddtodaoentity…",
+    "content": "payloadcommanddtodaoentity…"
+  },
+  
+  {
+    "title": "스프링 정보 정리",
+    "url": "/posts/spring-etc/",
+    "categories": "Spring",
+    "tags": "Java, Spring",
+    "date": "2023-03-06 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "  톰캣은 서블릿을 지원함. 서블릿 컨테이너롤 틍해 개발자는 멀티 스레드 관련 코드를 크게 신경쓰지 않아도 되지만, 대신 싱글톤 객체만큼은 크게 신경써야 함.2.",
+    "content": "  톰캣은 서블릿을 지원함. 서블릿 컨테이너롤 틍해 개발자는 멀티 스레드 관련 코드를 크게 신경쓰지 않아도 되지만, 대신 싱글톤 객체만큼은 크게 신경써야 함.2."
+  },
+  
+  {
+    "title": "Javascript 팁 정리",
+    "url": "/posts/javascript-tips/",
+    "categories": "Javascript",
+    "tags": "Javascript",
+    "date": "2023-03-06 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "      image src 쓸 때 local path 넣을 떈 require() 쓰면 됨        동적으로 component를 추가해야할 땐 v-bind:is=’[컴포넌트 이름]’ 입력        javascript에서 object를 호출할 때 pass by value되므로 for문이나 function 등 내부에서 변경 시에는 주의해야 함.ob...",
+    "content": "      image src 쓸 때 local path 넣을 떈 require() 쓰면 됨        동적으로 component를 추가해야할 땐 v-bind:is=’[컴포넌트 이름]’ 입력        javascript에서 object를 호출할 때 pass by value되므로 for문이나 function 등 내부에서 변경 시에는 주의해야 함.object 내부의 property를 변경 시에는 pass by reference되어 변경되므로, pass by value를 막기 위한 트릭으로도 사용할 수 있을 듯  이 글은 2022/03/25에 작성된 글입니다."
+  },
+  
+  {
+    "title": "HTTP 상태 코드",
+    "url": "/posts/http-status-code/",
+    "categories": "HTTP",
+    "tags": "HTTP, status code",
+    "date": "2023-03-06 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "http 응답 상태 코드는 크게 5종류로 나뉨.1XX, 조건부 응답\t \t서버가 요청을 성공적으로 수신, 다음 요청을 기다리는 중임을 나타냄2XX, 성공    \t \t서버가 요청을 성공적으로 수신, 이해, 처리했음을 나타냄3XX, 리다이렉션 완료 \t요청을 완료하기 위해 클라이언트의 추가 액션이 필요함을 나타냄4XX, 클라이언트 오류 \t잘못되었거나 수행할 ...",
+    "content": "http 응답 상태 코드는 크게 5종류로 나뉨.1XX, 조건부 응답\t \t서버가 요청을 성공적으로 수신, 다음 요청을 기다리는 중임을 나타냄2XX, 성공    \t \t서버가 요청을 성공적으로 수신, 이해, 처리했음을 나타냄3XX, 리다이렉션 완료 \t요청을 완료하기 위해 클라이언트의 추가 액션이 필요함을 나타냄4XX, 클라이언트 오류 \t잘못되었거나 수행할 수 없는 요청임을 나타냄5XX, 서버 오류 \t\t서버가 요청을 수행할 수 없음을 나타냄axios에서 응답을 처리할 때에는 기본적으로 2XX의 경우 then, 나머지는 catch로 처리함이 때 validateStatus를 이용하여 이 범위를 사용자가 직접 지정할 수도 있음이 글은 2022/04/21에 작성된 글입니다."
+  },
+  
+  {
+    "title": "CSS 팁 정리",
+    "url": "/posts/css-tips/",
+    "categories": "Javascript, CSS",
+    "tags": "Javascript, CSS",
+    "date": "2023-03-06 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "1. 넘치는 문자열 숨기기.class-name {  text-overflow: ellipsis;  overflow: hidden;  white-space: nowrap;}이 글은 2022/03/22에 작성된 글입니다.",
+    "content": "1. 넘치는 문자열 숨기기.class-name {  text-overflow: ellipsis;  overflow: hidden;  white-space: nowrap;}이 글은 2022/03/22에 작성된 글입니다."
+  },
+  
+  {
+    "title": "CSS grid",
+    "url": "/posts/css-grid/",
+    "categories": "Javascript, CSS",
+    "tags": "Javascript, CSS, grid",
+    "date": "2023-03-06 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "MDN",
+    "content": "MDN"
+  },
+  
+  {
+    "title": "CSS flex",
+    "url": "/posts/css-flex/",
+    "categories": "Javascript, CSS",
+    "tags": "Javascript, CSS, flex",
+    "date": "2023-03-06 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "MDN",
+    "content": "MDN"
+  },
+  
+  {
+    "title": "스프링 유닛 테스트",
+    "url": "/posts/spring-unit-test/",
+    "categories": "Spring, unit test",
+    "tags": "Java, Spring, unit test",
+    "date": "2023-03-04 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Getting Started  DocumentationSpring intializr를 통해 프로젝트를 생성하면 기본적으로 JUnit을 이용한 unit test 모듈도 아래와 같이 자동으로 생성됨.@SpringBootTestclass GymApplicationTests {    @Test    void contextLoads() {    }}@Sprin...",
+    "content": "Getting Started  DocumentationSpring intializr를 통해 프로젝트를 생성하면 기본적으로 JUnit을 이용한 unit test 모듈도 아래와 같이 자동으로 생성됨.@SpringBootTestclass GymApplicationTests {    @Test    void contextLoads() {    }}@SpringBootTest annotation을 적용한 class에서는 아래와 같이 @AutoWired를 사용하여 주입할 수 있음.@SpringBootTestclass GymApplicationTests {    @Autowired    private GymController controller;    @Test    void contextLoads() {        assertThat(controller).isNotNull(); // assertNotNull 보다 assertThat을 사용하자.    }}주요 서버 동작을 테스트 하기 위해 Service에 대한 테스트를 아래와 같이 작성함.@SpringBootTest@AutoConfigureMockMvcclass GymServiceTest {    @Autowired    MockMvc mockMvc;    @Test    void insertGym() throws Exception {        Gym gymTest = new Gym(\"testName1\", \"testAddress\", new java.sql.Date(new Date().getTime()));        MockMultipartFile info = new MockMultipartFile(\"info\", null, \"application/json\", gymTest.getInfoString().getBytes());        MockMultipartHttpServletRequestBuilder builder = multipart(\"/gyms\")                .file(info);        mockMvc.perform(builder)                .andExpect(status().isOk());    }}class에 @AutoConfigureMockMvc annotation을 붙여주고 class 안에서 @Autowired annotation이 붙은 MockMvc 인스터스를 만들어줌.MockServletRequestBuilder 타입의 builder를 통해 method와 content를 정의하고, mockMvc.perform으로 작업 수행.이 글은 2021/11/19에 작성된 글입니다.TODO: MockMvc, Mockito, BDDMockito)//: # (TODO: hibernate h2)TODO: https://mangkyu.tistory.com/145 참고해서 다시 작성)"
+  },
+  
+  {
+    "title": "스프링 시큐리티 키워드",
+    "url": "/posts/spring-security-keywords/",
+    "categories": "Spring, Spring Security",
+    "tags": "Java, Spring, Spring Security",
+    "date": "2023-03-04 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Spring security 공부하면서 정리할 것들.WEB-INF, META-INFforward, redirecthttp csrfbcryptcors: credential, origin …ElementCollectionAuthorization bearerJWT, JWSpreflight",
+    "content": "Spring security 공부하면서 정리할 것들.WEB-INF, META-INFforward, redirecthttp csrfbcryptcors: credential, origin …ElementCollectionAuthorization bearerJWT, JWSpreflight"
+  },
+  
+  {
+    "title": "스프링 시큐리티 인증",
+    "url": "/posts/spring-security-authentication/",
+    "categories": "Spring, Spring Security",
+    "tags": "Java, Spring, Spring Security, authentication, authorization",
+    "date": "2023-03-04 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Login 인증에 대한 Spring security의 flow  사용자가 인증 요청  사용자의 id, password, role 등을 기반으로 authentication token 발행 및 사용자에게 전달  이후 사용자로부터 인가가 필요한 요청이 들어왔을 때 요청에 포함되어 있는 token을 authenticationManager에 전달  authen...",
+    "content": "Login 인증에 대한 Spring security의 flow  사용자가 인증 요청  사용자의 id, password, role 등을 기반으로 authentication token 발행 및 사용자에게 전달  이후 사용자로부터 인가가 필요한 요청이 들어왔을 때 요청에 포함되어 있는 token을 authenticationManager에 전달  authenticationManager의 구현체인 providerManager에서 다시https://kobumddaring.tistory.com/60?category=976215"
+  },
+  
+  {
+    "title": "스프링 이미지",
+    "url": "/posts/spring-image/",
+    "categories": "Spring",
+    "tags": "Java, Spring, image transfer",
+    "date": "2023-03-04 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "LinkSpring MVC를 이용하여 이미지/미디어 전송.  HttpServletResponse가장 기본적인 구현 방식으로서 response 객체 및 servlet 구현을 이용.    @RequestMapping(value = \"/image-manual-response\", method = RequestMethod.GET)public void getIm...",
+    "content": "LinkSpring MVC를 이용하여 이미지/미디어 전송.  HttpServletResponse가장 기본적인 구현 방식으로서 response 객체 및 servlet 구현을 이용.    @RequestMapping(value = \"/image-manual-response\", method = RequestMethod.GET)public void getImageAsByteArray(HttpServletResponse response)throws IOException{    InputStream in=servletContext.getResourceAsStream(\"/WEB-INF/images/image-example.jpg\");    response.setContentType(MediaType.IMAGE_JPEG_VALUE);    IOUtils.copy(in,response.getOutputStream());}        다음과 같은 URL로 요청을 보낼 수 있음.    http://localhost:8080/spring-mvc-xml/image-manual-response.jpg            HttpMessageConverter  1의 방식은 Message Conversion 및 Content Negotiation의 면에서 문제점이 있음.          Message Conversion  Java에서는 http를 통해 데이터를 주고받는 과정에서 java object와 JSON 형식을 변환하는 것을 말함.              Content Negotiation 같은 URI로부터 어떤 형태로 데이터를 받을지를 결정하는 것을 말함.대표적으로 같은 URI에 접속하더라도 접속하는 국가에 따라서 언어가 달라지는 경우가 해당함.        Controller 메소드에 @ResponseBody annotation을 적용하고, 메소드의 리턴 타입에 따라 적절한 message converter를 선택.    @RequestMapping(value = \"/image-byte-array\", method = RequestMethod.GET)    public @ResponseBody byte[] getImageAsByteArray() throws IOException {    InputStream in = servletContext.getResourceAsStream(\"/WEB-INF/images/image-example.jpg\");    return IOUtils.toByteArray(in);}        다음과 같은 URL로 요청을 보낼 수 있음.    http://localhost:8080/spring-mvc-xml/image-manual-response.jpg        Method 안에서 response 객체에 대해 처리할 필요가 없음.Data source에서 image를 탐색하는 로직을 구현해야 하며, header나 status code를 추가할 수 없음.    ResponseEntityResponseEntity&lt;Byte[]&gt;타입으로 데이터 전송.ResponseEntity는 body 및 header, status code를 control할 수 있도록 구현이 되어 있음.    @RequestMapping(value = \"/image-response-entity\", method = RequestMethod.GET)    public ResponseEntity&lt;byte[]&gt; getImageAsResponseEntity() {    HttpHeaders headers = new HttpHeaders();    InputStream in = servletContext.getResourceAsStream(\"/WEB-INF/images/image-example.jpg\");    byte[] media = IOUtils.toByteArray(in);    headers.setCacheControl(CacheControl.noCache().getHeaderValue());\t\t    ResponseEntity&lt;byte[]&gt; responseEntity = new ResponseEntity&lt;&gt;(media, headers, HttpStatus.OK);    return responseEntity;}        적절한 예외 처리와 그에 대한 적절한 response만 구현해주면 됨.    ResponseEntity + ResourceResource는 low-level resource에 대한 인터페이스로, 다양한 타입의 resource(local files, remote files, classpath resources)에 대해 쉽게 접근할 수 있도록 해줌.    @RequestMapping(value = \"/image-resource\", method = RequestMethod.GET)@ResponseBodypublic ResponseEntity&lt;Resource&gt; getImageAsResource() {    HttpHeaders headers = new HttpHeaders();    Resource resource =    new ServletContextResource(servletContext, \"/WEB-INF/images/image-example.jpg\");    return new ResponseEntity&lt;&gt;(resource, headers, HttpStatus.OK);}      이 글은 2021/11/20에 작성된 글입니다."
+  },
+  
+  {
+    "title": "MIME type과 multipart",
+    "url": "/posts/mime-and-multipart/",
+    "categories": "HTTP, MIME",
+    "tags": "HTTP, MIME",
+    "date": "2023-03-04 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "MIMEMIME (Multipurpose Internet Mail Extensions) 타입은 원래 이메일에서 전송 시 데이터의 타입을 정의해주기 위해 사용되었고,그러다가 웹의 발달과 함께 HTTP 통신에도 사용하게 됨.HTTP에서는 body에 들어가는 데이터 타입을 헤더에서 content-type으로 명시를 해주는데,content-type을 MIME...",
+    "content": "MIMEMIME (Multipurpose Internet Mail Extensions) 타입은 원래 이메일에서 전송 시 데이터의 타입을 정의해주기 위해 사용되었고,그러다가 웹의 발달과 함께 HTTP 통신에도 사용하게 됨.HTTP에서는 body에 들어가는 데이터 타입을 헤더에서 content-type으로 명시를 해주는데,content-type을 MIME타입으로 명시해줌으로써 데이터가 어떤 형식인지 알 수 있음.MIME타입은 [TYPE]/[SUBTYPE]형식을 가짐.MIME타입의 [TYPE]에는 text, image, audio, video, application 등이 있음.MultipartMIME타입 중 multipart는 여러 타입의 데이터를 하나의 request에 담기 위해 사용됨.원래 html form의 enctype(인코딩 타입)은 default로 application/x-www-form-urlencoded를 사용함이 형식은 [KEY1]=[VALUE1]&amp;[KEY2]=[VALUE2]&amp;…의 key-value tuple로 인코딩됨.  영어가 아닌 문자의 경우 percent encoded되기 때문에 바이너리 데이에 사용하기에는 적절하지 않음.따라서 html form에 바이너리 데이터가 포함되어 있다면 multipart/form-data를 사용하는 것이 적절함.이 글은 2021/11/19에 작성된 글입니다."
+  },
+  
+  {
+    "title": "블로그 시작",
+    "url": "/posts/init-blog/",
+    "categories": "Blogging",
+    "tags": "Blogging",
+    "date": "2023-03-04 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "기존의 PC에 아카이빙하던 내용들 및 앞으로 작성할 글들을 블로그에 남기고자 한다.사실 원래 사용했던 블로그 repository가 있긴 했는데 테마가 마음에 안 들기도 하고, 당시에는 bundle을 사용하지 않았어서 불편한 점이 많았다. 다시 제대로 작성해볼 겸 repository도 새로 하나 팠다.",
+    "content": "기존의 PC에 아카이빙하던 내용들 및 앞으로 작성할 글들을 블로그에 남기고자 한다.사실 원래 사용했던 블로그 repository가 있긴 했는데 테마가 마음에 안 들기도 하고, 당시에는 bundle을 사용하지 않았어서 불편한 점이 많았다. 다시 제대로 작성해볼 겸 repository도 새로 하나 팠다."
+  },
+  
+  {
+    "title": "Entity Manager",
+    "url": "/posts/entity-manager/",
+    "categories": "Spring, JPA",
+    "tags": "Java, Spring, JPA, entity manager",
+    "date": "2023-03-04 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Link1Link2",
+    "content": "Link1Link2"
+  },
+  
+  {
+    "title": "CSS 문법 개요",
+    "url": "/posts/css-syntax/",
+    "categories": "Javascript, CSS",
+    "tags": "Javascript, CSS",
+    "date": "2023-03-04 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Cascading Style Sheets (CSS)WikipediaJavascript를 이용한 프론트엔드 개발에서 스타일을 넣기 위해 빠질 수 없는 요소1. Selector셀렉터는 어떤 element들에 스타일을 적용시킬 것인지를 결졍함  기본적으로 정의되어 있는 태그(div, p, input 등등)를 사용하는 element는 태그명을 사용  Id a...",
+    "content": "Cascading Style Sheets (CSS)WikipediaJavascript를 이용한 프론트엔드 개발에서 스타일을 넣기 위해 빠질 수 없는 요소1. Selector셀렉터는 어떤 element들에 스타일을 적용시킬 것인지를 결졍함  기본적으로 정의되어 있는 태그(div, p, input 등등)를 사용하는 element는 태그명을 사용  Id attribute를 사용한 element에는 #[id명]의 형태를 사용  Class attribute를 사용한 element에는 .[class명]의 형태를 사용2. Pseudo-classMDN web docsTCPschool의사클래스는 element의 상태에 따라 스타일을 적용하기 위해서 사용즉, 같은 element라고 하더라도 element의 상태에 따라 스타일을 다르게 적용시킬 수 있음선택자 뒤에 :[의사클래스명]를 붙여서 사용의사클래스는 다음과 같은 종류가 있음  동적 의사 클래스(dynamic pseudo-classes)          :link / :visited              링크에 한 번도 방문한 적이 없을 때 / 있을 때    - :hover      마우스를 위에 올려놓고 있을 때    - :active      마우스로 클릭하고 있을 때(마우스를 누르고 뗄 때까지)    - :focus      Input 등의 element가 선택된 상태일 때        상태 의사 클래스(UI element states pseudo-classes)          :checked              Input(radio, checkbox), option 등의 element에서 선택된 상태일 때    - :enabled / disabled      선택, 클릭, 입력 등이 가능한 element가 활성화 / 비활성화된 상태일 때        구조 의사 클래스(structural pseudo-classes)          :[first / last / nth / nth-last]-[child / of-type]              Element의 순서에 따라 결정      child의 경우 해당하는 순서의 child일 경우에만 적용        기타 의사 클래스          :not              주어진 인수에 해당하지 않는 element에만 반대로 적용    - :lang      언어에 따라 다르게 적용      3. Pseudo-elementMDN web docs의사요소는 원하는 요소의 일부분에만 스타일을 적용하기 위해 사용선택자 뒤에 ::[의사요소명]의 형태로 사용  ::before / ::after          요소 처음 / 마지막에 원하는 내용을 추가하기 위해 사용      주로 ‘content’프로퍼티와 함께 사용        ::first-letter / ::first-line          텍스트의 첫 번째 글자 / 줄에만 적용        ::marker          요소 li에 들어가는 marker의 스타일을 적용      4. Declaration blockCSS에서는 스타일을 [프로퍼티]:[값];의 형태로 나타냄프로퍼티가 크기나 길이를 나타낼 경우, 0이 아닌 값에 대해서는 무조건 단위를 붙여야 함다음 7가지의 단위가 권장된다고 함  ch: 현재 폰트 및 폰트 사이즈에서 ‘0’문자의 너비에 해당하는 단위  Q: 1/40 cm  rem: 루트 요소의 글꼴 크기  vh, vw: 브라우저의 뷰포트의 1/100에 해당하는 단위  vmin, vmax: 각각 vh/vw 중 작은 값, 큰 값5. Cascading둘 이상의 스타일이 있을 때, 어떤 스타일을 적용시킬지를 결정  Priority우선순위는 다음과 같음  !important가 붙은 프로퍼티  Element 내에서 style 어트리뷰트로 적용한 스타일  특정 media type의 css가 정의되어 있지 않으면 모든 media type에 적용  사용자 정의 css (외부 css파일을 이용한 스타일?)  셀렉터에 따른 specificity  나중에 정의된 스타일이 덮어씌움  정의된 프로퍼티가 없다면 부모의 값을 상속받음  Inline 스타일 (HTML 내에서 style 태그를 이용한 스타일?)  브라우저 기본값  SpecificityPriority 5번째 항목의 specificity는 셀렉터에 따라 결정됨위 표에서 specificity는 순서대로[style attribute 사용 유무], [id 유무], [class 개수], [element 개수]를 나타냄왼쪽부터 값이 클수록 우선순위가 높음(style attribute 사용 유무는 priority의 2번 항목과 중복되는 것 같은데…)이 글은 2022/03/16에 작성된 글입니다."
+  },
+  
+  {
+    "title": "CSS 페이지 레이아웃",
+    "url": "/posts/css-page-layout/",
+    "categories": "Javascript, CSS",
+    "tags": "Javascript, CSS",
+    "date": "2023-03-04 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Page LayoutBlog1. Normal flow기본적으로 대부분의 요소들은 normal flow를 따라 부모 요소 안에서 순서대로 배치됨만약 특정 요소에 normal flow를 벗어나는 스타일이 적용되면 해당 요소는 normal flow가 적용된 요소들과 독립적으로 배치됨2. Containing BlockMDN컨테이닝 블록은 어떤 요소의 크기 및...",
+    "content": "Page LayoutBlog1. Normal flow기본적으로 대부분의 요소들은 normal flow를 따라 부모 요소 안에서 순서대로 배치됨만약 특정 요소에 normal flow를 벗어나는 스타일이 적용되면 해당 요소는 normal flow가 적용된 요소들과 독립적으로 배치됨2. Containing BlockMDN컨테이닝 블록은 어떤 요소의 크기 및 위치를 결정하는 기준이 되는 영역을 뜻함일반적으로는 부모 요소의 content 영역이지만, 이는 position 프로퍼티에 따라 달라짐3. PositionMDNPosition 속성은 어떤 요소를 컨테이닝 블록으로 식별할 것인지를 결정함Position 속성에는 다음 5가지 종류가 있음      static기본값으로, 요소가 normal flow를 벗어나지 않으며 top, left같은 프로퍼티에도 영향을 받지 않음        relative요소가 normal flow를 벗어나지 않으며 자기 자신의 위치(아마 static일 때의 위치)를 기준으로 top, left같은 프로퍼티의 영향을 받음        sticky요소가 기본적으로 normal flow를 벗어나지 않고 static과 유사하게 작동top, left같은 프로퍼티로 지정한 임계값을 벗어나면 normal flow를 벗어나고 fixed와 유사하게 작동컨테이닝 블록의 content 영역에 다다르면 다시 fixed가 해제됨        absolute요소가 normal flow를 벗어나며 상위 요소를 기준으로 top, left같은 프로퍼티의 영향을 받음        fixed요소가 normal flow를 벗어나며 뷰포트나 페이지 영역을 기준으로 top, left같은 프로퍼티의 영향을 받음  보다 자세한 내용은 MDN 참조4. Displaydisplay는 normal flow 상에서 요소가 어떻게 배치될 것인지를 결정display 프로퍼티는 display-outside와 display-inside 2가지를 설정할 수 있음  display-outside      inline요소의 앞뒤를 줄바꿈하지 않는 inline 요소가 됨뷰포트를 넘어설 때까지 같은 줄 안에서 배치되며, 뷰포트를 넘어서면 다음 줄로 넘어감        block요소의 앞뒤를 줄바꿈하는 block 요소가 됨        inline-block요소의 앞뒤를 줄바꿈하지 않는 block 요소가 됨        none요소 및 하위 요소가 접근성 트리에서 제거되어 표시되지 않음    display-inside      flow하위 요소가 normal flow를 따름        flow-root새로운 block formatting context(블록 박스가 생성되고 float가 다른 요소와 상호작용하는 공간)을 생성한다고 함어떤 요소에 float가 적용됐을 경우 부모 요소가 box의 크기를 결정할 때 해당 요소를 인식하지 못 하는 문제를 해결할 수 있음        flexflex layout은 웹앱이나 복잡한 웹페이지에서 쉽게 공간을 분배하고 배열하기 위해 생겨났음flex layout은 따로 문서를 하나 작성할 예정         gridgrid layout은 세로 열과 가로 행을 기준으로 요소를 정렬하기 위해 생겨났음table과 유사하지만, table보다 유연하고 쉽게 레이아웃을 구현할 수 있음grid layout 역시 따로 문서를 하나 작성할 예정   5. Float / Clear  floatfloat는 요소가 normal flow를 벗어나고 display-outside가 block으로 변경됨float 값에 따라 컨테이너의 왼쪽 혹은 오른쪽으로 정렬됨float가 적용된 요소가 여러 개일 경우 해당 요소들끼리 자동으로 정렬됨float가 설정된 요소는 상위 요소가 해당 요소를 인식하지 못 하기 때문에 따로 처리가 필요함  clear텍스트 및 inline 요소들은 float가 적용된 요소들과 같은 줄에도 배열되지만,clear가 젹용된 요소는 float가 적용된 요소들과 같은 줄에 배열되지 않고 위아래로만 배열됨clear가 left / right 일 경우 같은 값의 float가 적용된 요소에만 적용되며, clear가 both일 경우 left, right 모두 해당됨이 글은 2022/03/18에 작성된 글입니다."
+  },
+  
+  {
+    "title": "쿠키와 세션",
+    "url": "/posts/cookie-and-session/",
+    "categories": "HTTP",
+    "tags": "HTTP, cookie, session, authentication",
+    "date": "2023-03-04 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "HTTP는 기본적으로 connectionless, stateless한 특성을 가짐.  Connectionless  하나의 요청에 대해 하나의 응답을 보낸 후 연결을 끊음.응답 이후 바로 연결을 끊어버리기 때문에 여러 클라이언트로부터 한 번에 많은 요청이 와도 비교적 적은 부담으로 처리할 수 있음.따라서 지속적으로 응답을 받기 위해서는 지속적으로 요청을...",
+    "content": "HTTP는 기본적으로 connectionless, stateless한 특성을 가짐.  Connectionless  하나의 요청에 대해 하나의 응답을 보낸 후 연결을 끊음.응답 이후 바로 연결을 끊어버리기 때문에 여러 클라이언트로부터 한 번에 많은 요청이 와도 비교적 적은 부담으로 처리할 수 있음.따라서 지속적으로 응답을 받기 위해서는 지속적으로 요청을 보내야 함.또한 매 요청에 대해서 3-way handshaking을 수행해야 함.  Stateless  이전에 주고받은 상태를 저장하지 않음.이 역시 리소스 부담이 적고 이전과 다른 서버에 요청이 들어오더라도 동일한 응답을 내릴 수 있음.따라서 여러 개의 요청에 중복된 데이터가 포함되어 있더라도 매번 같은 데이터를 포함하여 요청을 보내야 함.위 특징 중 Stateless로 인해 생기는 문제점이 있음.로컬환경에서만 저장되는 정보가 요청에 필요하다고 하면, 매번 해당 정보를 담아서 요청을 보내야 함.예를 들어 유저 인증이 필요한 웹사이트를 이용하고자 할 때, 클라이언트에서 요청을 보낼 때마다 유저 인증과 관련된 정보를 매번 함께 보내야 함.이 문제점을 해결하기 위해 세션과 쿠키라는 개념이 생겨났음.세션과 쿠키 모두 클라이언트의 상태를 유지하기 위해 사용됨. (ex. 유저 인증)Cookie쿠키는 클라이언트의 상태를 브라우저에 저장하고, 요청에 쿠키를 담아서 보내는 방식임.쿠키는 지속 쿠키(persistent cookie)와 세션 쿠키(session cookie)로 나뉨.지속 쿠키는 유효기간을 설정하여 해당 기간이 지나면 만료되도록 하며, 브라우저가 종료되도 삭제되지 않음.세션 쿠키는 세션을 이용한 연결에서 사용되며, 브라우저가 종료되면 삭제됨.지속 쿠키의 라이프사이클은 다음과 같음.      클라이언트에서 쿠키가 발급되는 요청을 보냄.    서버는 쿠키를 포함하여 응답을 보냄.    클라이언트는 응답에 포함된 쿠키를 브라우저에 저장함.    쿠키가 필요한 요청을 할 때마다 해당 쿠키를 포함하여 요청함. (HTTP header에 저장)    쿠키의 유효기간이 지나면 쿠키가 만료됨.  쿠키는 클라이언트에 저장되기 때문에 탈취 및 변조에 취약함.Session세션은 클라이언트의 상태를 서버에서 관리함.클라이언트도 세션이 연결되었다는 것을 알 수 있도록 세션 id를 발급해줌. (주로 세션 쿠키의 형태)세션의 라이프사이클은 다음과 같음.      클라이언트가 세션이 생성되는 요청을 보냄.    서버는 클라이언트의 상태를 저장하고, 세션 id를 발급해줌.    클라이언트는 세션 id를 브라우저에 저장함.    클라이언트가 세션이 필요한 요청을 할 때마다 세션 id를 포함하여 요청을 보냄.    브라우저가 종료되면 쿠키가 삭제되고, 서버에서도 세션 연결을 종료함.  세션은 클라이언트 상태가 서버에 저장되기 때문에 쿠키에 비해 비교적 안전함.연결된 세션이 많을 경우 서버에 부담이 큼.이 글은 2021/12/04에 작성된 글입니다."
+  },
+  
+  {
+    "title": "컴포넌트 간의 바인딩",
+    "url": "/posts/binding-in-components/",
+    "categories": "Javascript",
+    "tags": "Javascript",
+    "date": "2023-03-04 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Documentation [ English / Korean ]양방향 바인딩은 자식 컴포넌트가 부모 컴포넌트를 변경시킬 때, 변경점이 명확하지 않다는 문제가 있음.이러한 이유로 자식-&gt;부모 방향 바인딩은 emitting event를 사용함.&lt;child v-bind:title=\"doc.title\"               v-on:update:...",
+    "content": "Documentation [ English / Korean ]양방향 바인딩은 자식 컴포넌트가 부모 컴포넌트를 변경시킬 때, 변경점이 명확하지 않다는 문제가 있음.이러한 이유로 자식-&gt;부모 방향 바인딩은 emitting event를 사용함.&lt;child v-bind:title=\"doc.title\"               v-on:update:title=\"doc.title = $event\"&gt;&lt;/child&gt;위 코드와 같이 부모-&gt;자식 방향 바인딩은 child 컴포넌트의 title 프로퍼티를 이용하며,자식-&gt;부모 방향 바인딩은 child 컴포넌트에서 ‘update:title’를 emit하는 방식을 이용함.따라서 부모 컴포넌트에서 바인딩된 객체가 변경될 때에는 자식 컴포넌트의 객체가 변경되지만,반대의 경우 emitting event 함수를 명시적으로 호출해야 함.위 코드는 아래와 같이 줄일 수 있음.&lt;child :title.sync=\"doc.title\"&gt;&lt;/child&gt;이 글은 2021/11/19에 작성된 글입니다."
+  },
+  
+  {
+    "title": "REST",
+    "url": "/posts/REST/",
+    "categories": "HTTP, REST",
+    "tags": "HTTP, REST, RESTful",
+    "date": "2023-03-04 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "“REpresentational State Transfer”REST는 HTTP 이용 시 서버-클라이언트 간에 최대한 loose coupling하는 것을 목적으로 생겨남.REST API는 크게 6가지의 조건을 지켜야 함.      Uniform InterfaceApplication의 리소스와 대응되는 고유한 URI를 할당하고, 해당 URI를 통해 서버-...",
+    "content": "“REpresentational State Transfer”REST는 HTTP 이용 시 서버-클라이언트 간에 최대한 loose coupling하는 것을 목적으로 생겨남.REST API는 크게 6가지의 조건을 지켜야 함.      Uniform InterfaceApplication의 리소스와 대응되는 고유한 URI를 할당하고, 해당 URI를 통해 서버-클라이언트 간에 리소스를 주고 받음. 이때 리소스는 대응되는 URI는 동의어로 설정해야 함.(*HATEOAS를 따르면 클라이언트에 비해 서버의 구현이 복잡해지고 부하가 늘어난다고 생각.)        Client-Server    클라이언트와 서버는 서로간에 의존성 없이 독립적으로 개발될 수 있어야 함. 클라이언트는 오직 resource에 대응되는 URI만을 알면 됨.        Stateless  서버가 클라이언트의 상태를 저장하지 않아야 함. 따라서 클라이언트는 인증을 포함한 모든 정보를 요청에 포함시켜야 함.  (이를 따르지 않는 경우가 session)        Cacheable  캐싱하는 것은 서버-클라이언트 간의 부하를 줄여 성능을 향상시켜 줌. 요즘의 웹사이트는 아주 잘 따르고 있음.        Layered System 서버를 로드밸런싱, 암호화 등 여러 개의 계층적인 구조로 설계하고 각 계층의 역할을 구분함으로써 확장성을 높여줌.        Code on demand (optional) 클라이언트가 서버로부터 직접 스크립트를 받아서 실행함.  RESTful이라는 용어가 생긴 이유에 대해 고민해보면…REST API라고 부를 수 있도록 완벽하게 위의 조건들을 만족하는 것이 어렵기 때문이 아닐까? 대표적으로 위에서 적은 HATEOAS의 경우에도 서버에서 구현해야하는 부담이 커지기 때문에 생산성이 떨어질 수 있다고 생각함. (물론 유지보수 시에는 유리한 측면이 많기도 하지만) REST의 조건들을 따르되, 어느정도는 프로젝트의 특성에 맞게 타협하게 되는 것 같음.이 글은 2021/11/19에 작성된 글입니다."
+  },
+  
+  {
+    "title": "CORS",
+    "url": "/posts/CORS/",
+    "categories": "HTTP",
+    "tags": "HTTP, CORS",
+    "date": "2023-03-04 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "CORS (Cross-Origin Resource Sharing)CORS 영문 문서정리 잘 된 한글 문서맨 처음에는 기본적인 서버-클라이언트 구조를 구축하고나서 클라이언트에서 서버에 요청을 보냈을 때 발생했음그 당시에는 서버에서 CORS를 허용하는 함수 한두 줄만 추가해줬으면 됐는데, session 연결을 하다보니 문제가 발생해서 찾아보니 creden...",
+    "content": "CORS (Cross-Origin Resource Sharing)CORS 영문 문서정리 잘 된 한글 문서맨 처음에는 기본적인 서버-클라이언트 구조를 구축하고나서 클라이언트에서 서버에 요청을 보냈을 때 발생했음그 당시에는 서버에서 CORS를 허용하는 함수 한두 줄만 추가해줬으면 됐는데, session 연결을 하다보니 문제가 발생해서 찾아보니 credential을 등록할 때도 또 CORS설정이 추가로 필요하게 됨CORS는 교차 출처 리소스 공유, 즉 출처(도메인, 프로토콜, 포트 …)가 다른 리소스를 공유하기 위해 접근할 수 있도록 권한을 부여하는 것동작 순서CORS는 다음과 같은 순서를 따라 동작함  브라우저가 헤더 중 Origin 필드에 요청을 보내는 Origin를 담아 요청을 보냄  서버는 헤더 중 Access-Control-Allow-Origin 필드에 리소스에 접근할 수 있는 출처를 담아 응답을 보냄  브라우저는 요청의 Origin과 응답의 Access-Control-Allow-Origin을 비교하여 결정함CORS는 브라우저 상에서 구현된 정책이며 응답을 받을 때 동작하기 때문에, CORS 에러가 발생해도 서버에서는 관련 로그가 남지 않음또한 브라우저를 사용하지 않으면 CORS와 관련한 문제가 발생하지 않음동작 방식CORS가 동작하는 방식은 크게 3가지가 있음  Preflight Request  Simple Request  Credentialed Request1. Preflight Request요청을 보낼 때 예비 요청과 본 요청으로 나누어서 보내는 방식임예비 요청은 method로 OPTIONS을 사용함Preflight request의 동작 순서는 다음과 같음  브라우저가 서버에 예비 요청을 보냄여기에 본 요청에 사용할 content type이나 method 등도 포함시킴  서버는 헤더 중 Access-Control-Allow-Origin 필드에 리소스에 접근할 수 있는 출처를 담아 응답을 보냄  브라우저는 요청의 Origin과 응답의 Access-Control-Allow-Origin을 비교함  허용된 Origin이라면 본 요청을 다시 보내고, 허용되지 않았다면 CORS 에러를 뱉어냄요약하면 위에서 설명한 CORS의 동작방식 중 Origin만을 비교하기 위한 예비 요청 단계가 추가되었다고 볼 수 있을 것 같음2. Simple Request예비 요청 없이 바로 본 요청만을 보내는 방식임단순 요청은 다음과 같은 조건들을 모두 만족해야 함  다음 중 하나의 method          GET      HEAD      POST        User agent에 의해 자동으로 설정된 헤더 및 다음 헤더만을 변경          Accept      Accept-Language      Content-Language      Content-Type        Content-Type을 사용할 경우 이하만 허용          application/x-www-form-urlencoded      multipart/form-data      text/plain      위 조건을 만족하지 못 하면 예비 요청이 들어감3. Credentialed Request본 문서를 작성하게 된 가장 큰 이유로, 출처 외에 인증과 관련된 정보를 포함하여 요청을 보내는 방식임Credentials 옵션은 다음과 같이 세 가지가 있음  same-origin (default): 같은 출처 간 요청에만 인증 정보를 포함함  include: 모든 요청에 인증 정보를 포함함  omit: 모든 요청에 인증 정보를 포함하지 않음또한 만약 Credentials 옵션으로 include를 사용하면, Access-Control-Allow-Origin 헤더의 값으로 와일드카드(*)를 사용할 수 없음이 글은 2021/12/21에 작성된 글입니다."
+  },
+  
+  {
+    "title": "ATDD",
+    "url": "/posts/ATDD/",
+    "categories": "TDD",
+    "tags": "TDD, unit test",
+    "date": "2023-03-04 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Link1Link2ATDD (Acceptance Test-Driven Development)",
+    "content": "Link1Link2ATDD (Acceptance Test-Driven Development)"
+  }
+  
+]
+
